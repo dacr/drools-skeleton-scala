@@ -1,20 +1,7 @@
-# Drools expert and fusion usage examples
-(this project has been forked from [this original one](https://github.com/dacr/scala-drools-dummy-project))
+# Drools expert system skeleton project
 
-
+Run and build using [SBT](https://www.scala-sbt.org/) as follow :
 ```
 $ sbt test
 $ sbt run
-$ sbt universal:packageBin
-# -- packaged artifact is placed in target/universal directory
 ```
-
-Some advices :
-
-- don't use fat jar with drools, switch to sbt-native-packager
-- Scala case classes are perfect for your rules
-- Use only java collections within the classes used by your rules.
-  Avoid the scala collections in that precise case but rely on
-  collection.JavaConversions._ implicits to hide that restriction.
-- In knowledge bases only use declarative classes (declare) for
-  internal usage, such as intermediary reasoning state.
