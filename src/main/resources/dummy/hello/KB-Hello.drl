@@ -1,6 +1,6 @@
 package dummy.hello
 
-import dummy.Hello
+import dummy.Someone
 import dummy.HelloResponse
 
 dialect "mvel"
@@ -9,8 +9,8 @@ global org.slf4j.Logger logger
 
 rule "Hello"
 when
-  $hello: Hello($msg:message)
+  $hello: Someone($msg:name)
 then
-  logger.info("Hello rule fired up")
-  insert(new HelloResponse("Hello "+$msg))
+  logger.info("Hello rule fired up");
+  insert(new HelloResponse("Hello "+$msg));
 end

@@ -14,10 +14,10 @@ object Dummy {
     val ksession = kbase.newKieSession
     try {
       ksession.setGlobal("logger", LoggerFactory.getLogger("HelloKB"))
-      ksession.insert(Hello("world"))
+      ksession.insert(Someone("joe"))
       ksession.fireAllRules()
       val messages = ksession.getObjects().asScala.collect { case HelloResponse(msg) => msg }
-      assert(messages.toList == List("Hello world"))
+      assert(messages.toList == List("Hello joe"))
     } finally {
       ksession.dispose()
     }

@@ -14,10 +14,10 @@ class DummyTest extends FlatSpec with Matchers {
     val ksession = kbase.newKieSession
     try {
       ksession.setGlobal("logger", LoggerFactory.getLogger("HelloKB"))
-      ksession.insert(Hello("world"))
+      ksession.insert(Someone("joe"))
       ksession.fireAllRules()
       val messages = ksession.getObjects().asScala.collect { case HelloResponse(msg) => msg }
-      messages.toList shouldBe List("Hello world")
+      messages.toList shouldBe List("Hello joe")
     } finally {
       ksession.dispose()
     }
